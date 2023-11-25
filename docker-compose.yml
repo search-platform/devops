@@ -1,11 +1,21 @@
 version: "3.8"
 services:
+  organization-frontend:
+    build:
+      context: ../front-end
+      dockerfile: ../front-end/build/Dockerfile
+    restart: always
+    ports:
+      - 80:3000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
   organization-api:
     build:
       context: ../organization-api
       dockerfile: ../organization-api/build/Dockerfile
-      args:
-        PROJECT: search-platform
     restart: always
     ports:
       - 8080:8080
