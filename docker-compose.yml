@@ -3,7 +3,7 @@ services:
   organization-frontend:
     build:
       context: ../front-end
-      dockerfile: ../front-end/build/Dockerfile
+      dockerfile: ../front-end/Dockerfile
     restart: always
     ports:
       - 80:3000
