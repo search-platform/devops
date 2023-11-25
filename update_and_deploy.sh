@@ -4,13 +4,14 @@ directories=("devops" "front-end" "gpt-service" "organization-api")
 
 pull_in_directory() {
     echo "Performing git pull in $1..."
-    cd $1
+    pushd $1 
     git pull
     if [ $? -ne 0 ]; then
         echo "Error occurred in $1"
+        popd
         exit 1
     fi
-    cd ..
+    popd
 }
 
 initial_dir=$(pwd)
