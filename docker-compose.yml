@@ -30,6 +30,25 @@ services:
       options:
         max-size: "100m"
         max-file: "5"
+  gpt-service:
+    build:
+      context: ../gpt-service
+      dockerfile: ../gpt-service/build/Dockerfile
+      args:
+        TARGETARCH: amd64
+        PROJECT: gpt-service
+    environment:
+      - DSN="postgres://keygen:cocacola@localhost:5432/keygen?sslmode=disable",
+      - PORT=8080
+      - GRPC_PORT=9011
+      - GPT_4_API_KEY=${GPT_4_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GOOGLE_CUSTOM_SEARCH_ENGINE_ID=${GOOGLE_CUSTOM_SEARCH_ENGINE_ID}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
   postgres:
     image: postgres
     environment:
