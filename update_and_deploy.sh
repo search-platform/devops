@@ -22,4 +22,4 @@ done
 
 cd "$initial_dir"
 echo "Starting Docker compose in devops..."
-docker compose up -d
+docker compose up -d --build
