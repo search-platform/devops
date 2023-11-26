@@ -8,6 +8,8 @@ services:
     devices:
       - "/dev/net/tun"
     restart: always
+    networks:
+      - backend
   organization-frontend:
     build:
       context: ../front-end
@@ -27,6 +29,8 @@ services:
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - backend
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/search-platform
       - SPRING_DATASOURCE_USERNAME=postgres
@@ -47,6 +51,8 @@ services:
         PROJECT: gpt-service
     restart: always
     network_mode: "service:vpn"
+    networks:
+      - backend
     environment:
       - DSN=postgres://postgres:123456@postgres:5432/search-platform?sslmode=disable
       - PORT=8080
@@ -80,3 +86,7 @@ services:
 
 volumes:
   pgdata:
+
+networks:
+  backend:
+    driver: bridge
