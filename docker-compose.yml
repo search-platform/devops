@@ -38,7 +38,7 @@ services:
         TARGETARCH: amd64
         PROJECT: gpt-service
     environment:
-      - DSN=postgres://postgres:123456@postgres:5432/keygen?sslmode=disable
+      - DSN=postgres://postgres:123456@postgres:5432/search-platform?sslmode=disable
       - PORT=8080
       - GRPC_PORT=9011
       - GPT_4_API_KEY=${GPT_4_API_KEY}
