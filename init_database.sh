@@ -389,4 +389,5 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     INSERT INTO "contact" ("type", "description", "value", "organization_id") VALUES ('PHONE', 'Sales Department', '555-2100', 20);
     INSERT INTO "contact" ("type", "description", "value", "organization_id") VALUES ('PHONE', 'Support Department', '555-2101', 20);
 
+    INSERT INTO "user" ("login", "password") VALUES ('admin@gmail.com', '17a52eb47cfc741a02c0fb8841b0a7794973df3a06a53cf5d9f73b486e06945e');
 EOSQL
