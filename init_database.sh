@@ -23,7 +23,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
                                     "type" varchar,
                                     "name" varchar,
                                     "address" varchar,
+                                    "url" varchar,
                                     "logo_url" varchar,
+                                    "fav_icon" varchar,
                                     "name_vector_eng" tsvector GENERATED ALWAYS AS (to_tsvector('english', name)) STORED,
                                     "address_vector_eng" tsvector GENERATED ALWAYS AS (to_tsvector('english', address)) STORED,
                                     "county_id" bigint
@@ -248,26 +250,26 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     INSERT INTO "country" ("name") VALUES ('Zimbabwe');
 
 
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'JPMorgan Chase', 'New York City', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Bank of America', 'Charlotte', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Citigroup', 'New York City', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Wells Fargo', 'San Francisco', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Goldman Sachs', 'New York City', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Morgan Stanley', 'New York City', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'U.S. Bancorp', 'Minneapolis', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'PNC Financial Services', 'Pittsburgh', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Truist Financial', 'Charlotte', 'http://example.com/logo.png', 1);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'TD Bank, N.A.', 'Cherry Hill, New Jersey', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Charles Schwab Corporation', 'Westlake, Texas', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Capital One', 'McLean, Virginia', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'The Bank of New York Mellon', 'New York City', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'State Street Corporation', 'Boston', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'BMO USA', 'Chicago', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'American Express', 'New York City', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'HSBC Bank USA', 'New York City', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'Citizens Financial Group', 'Providence, Rhode Island', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'First Citizens BancShares', 'Raleigh, North Carolina', 'http://example.com/logo.png', 2);
-    INSERT INTO organization ("type", "name", "address", "logo_url", "county_id") VALUES ('BANK', 'M&T Bank', 'Buffalo, New York', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'JPMorgan Chase', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Bank of America', 'Charlotte', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Citigroup', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Wells Fargo', 'San Francisco', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Goldman Sachs', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Morgan Stanley', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'U.S. Bancorp', 'Minneapolis', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'PNC Financial Services', 'Pittsburgh', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Truist Financial', 'Charlotte', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 1);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'TD Bank, N.A.', 'Cherry Hill, New Jersey', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Charles Schwab Corporation', 'Westlake, Texas', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Capital One', 'McLean, Virginia', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'The Bank of New York Mellon', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'State Street Corporation', 'Boston', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'BMO USA', 'Chicago', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'American Express', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'HSBC Bank USA', 'New York City', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'Citizens Financial Group', 'Providence, Rhode Island', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'First Citizens BancShares', 'Raleigh, North Carolina', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
+    INSERT INTO organization ("type", "name", "address", "url", "logo_url", "fav_icon", "county_id") VALUES ('BANK', 'M&T Bank', 'Buffalo, New York', 'http://example.com/logo.png', 'http://example.com/logo.png', 'http://example.com/logo.png', 2);
 
     -- Inserts for organization_id = 2
     INSERT INTO "contact" ("type", "description", "value", "organization_id") VALUES ('EMAIL', 'Sales Department', 'sales2@example.com', 1);
@@ -389,5 +391,5 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
     INSERT INTO "contact" ("type", "description", "value", "organization_id") VALUES ('PHONE', 'Sales Department', '555-2100', 20);
     INSERT INTO "contact" ("type", "description", "value", "organization_id") VALUES ('PHONE', 'Support Department', '555-2101', 20);
 
-    INSERT INTO "user" ("login", "password") VALUES ('admin@gmail.com', '17a52eb47cfc741a02c0fb8841b0a7794973df3a06a53cf5d9f73b486e06945e');
+   INSERT INTO "user" ("login", "password") VALUES ('admin@gmail.com', '17a52eb47cfc741a02c0fb8841b0a7794973df3a06a53cf5d9f73b486e06945e');
 EOSQL
