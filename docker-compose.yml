@@ -37,6 +37,7 @@ services:
       args:
         TARGETARCH: amd64
         PROJECT: gpt-service
+    restart: always
     environment:
       - DSN=postgres://postgres:123456@postgres:5432/search-platform?sslmode=disable
       - PORT=8080
@@ -44,6 +45,8 @@ services:
       - GPT_4_API_KEY=${GPT_4_API_KEY}
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - GOOGLE_CUSTOM_SEARCH_ENGINE_ID=${GOOGLE_CUSTOM_SEARCH_ENGINE_ID}
+    ports:
+      - 8081:8080
     logging:
       driver: "json-file"
       options:
